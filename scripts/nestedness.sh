@@ -2,13 +2,16 @@
 
 sIODir=$HOME/Documents/Research/Projects/EMP_Nestedness
 
-sDataDir=$sIODir/data/nestedness_emp_data
+sDataDir=$sIODir/data
 sJavaDir=$sIODir/bin
 
 sOutDir=$sIODir/results/subset_1
 sBiomPath=$sDataDir/revision_subsets/emp_deblur_90bp.modMapping1.subset_2k.biom
 mkdir -p $sOutDir
 bash $sIODir/scripts/nestedness_graphs.sh $sBiomPath $sOutDir $sIODir $sJavaDir
+
+exit
+
 bash $sIODir/scripts/nestedness_statistics.sh $sBiomPath $sOutDir $sIODir $sJavaDir
 
 sOutDir=$sIODir/results/subset_2
@@ -53,7 +56,7 @@ bash $sIODir/scripts/nestedness_statistics.sh $sBiomPath $sOutDir $sIODir $sJava
 sOutDir=$sIODir/results/10_percent
 sBiomPath=$sDataDir/Global.Global2000Subset.BacteriaSubset10.EMP.biom
 mkdir -p $sOutDir
-bash $sIODir/scripts/nestedness_graphs.sh $sBiomPath $sOutDir $sIODir $sJavaDir
+#bash $sIODir/scripts/nestedness_graphs.sh $sBiomPath $sOutDir $sIODir $sJavaDir
 bash $sIODir/scripts/nestedness_statistics.sh $sBiomPath $sOutDir $sIODir $sJavaDir
 
 #running full analysis

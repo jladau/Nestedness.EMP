@@ -43,15 +43,16 @@ do
 
 		sEmpo=${rgsEmpoCategories[j]}	
 
-		echo 'Analyzing '$sTaxonRank', '$sEmpo'...'
-				
+		echo 'Analyzing '$sTaxonRank', '$sEmpo'...'		
 		java -cp $sJavaDir/Autocorrelation.jar edu.ucsf.Nestedness.Grapher.GrapherLauncher \
 		--sSamplesToKeepPath=$sIODir/temp.$sEmpo.csv \
-		--sDataPath=$sBiomPath \
+		--sBIOMPath=$sBiomPath \
 		--bNormalize=false \
 		--sTaxonRank=$sTaxonRank \
 		--sOutputPath=$sOutputDir/graphs.$sTaxonRank.$sEmpo.csv \
 		--rgsSampleMetadataFields=empo_3
+
+		exit
 
 		#sending to merged output
 		tail -n+2 $sOutputDir/graphs.$sTaxonRank.$sEmpo.csv | sed "s|^|$sEmpo\,$sTaxonRank\,|g" >> temp.2.csv
@@ -67,7 +68,7 @@ do
 	echo 'Analyzing '$sTaxonRank', all...'
 
 	java -cp $sJavaDir/Autocorrelation.jar edu.ucsf.Nestedness.Grapher.GrapherLauncher \
-	--sDataPath=$sBiomPath \
+	--sBIOMPath=$sBiomPath \
 	--bNormalize=false \
 	--sTaxonRank=$sTaxonRank \
 	--sOutputPath=$sOutputDir/graphs.$sTaxonRank.allsamples.csv \
