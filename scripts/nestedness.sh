@@ -9,9 +9,6 @@ sOutDir=$sIODir/results/subset_1
 sBiomPath=$sDataDir/revision_subsets/emp_deblur_90bp.modMapping1.subset_2k.biom
 mkdir -p $sOutDir
 bash $sIODir/scripts/nestedness_graphs.sh $sBiomPath $sOutDir $sIODir $sJavaDir
-
-exit
-
 bash $sIODir/scripts/nestedness_statistics.sh $sBiomPath $sOutDir $sIODir $sJavaDir
 
 sOutDir=$sIODir/results/subset_2

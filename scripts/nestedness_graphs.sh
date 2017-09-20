@@ -4,7 +4,9 @@ sIODir=$3
 sOutputDir=$2
 sBiomPath=$1
 sJavaDir=$4
+
 rgsTaxa=(phylum class order family genus otu)
+
 sEmpoField=empo_2
 rgsEmpoCategories=(Animal Non-saline Saline Plant)
 
@@ -51,8 +53,6 @@ do
 		--sTaxonRank=$sTaxonRank \
 		--sOutputPath=$sOutputDir/graphs.$sTaxonRank.$sEmpo.csv \
 		--rgsSampleMetadataFields=empo_3
-
-		exit
 
 		#sending to merged output
 		tail -n+2 $sOutputDir/graphs.$sTaxonRank.$sEmpo.csv | sed "s|^|$sEmpo\,$sTaxonRank\,|g" >> temp.2.csv
